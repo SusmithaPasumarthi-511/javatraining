@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	var Questions = new Array(
+		"1. HTML stands for "
+		"2. The correct sequence of HTML tags for starting a webpage is -"
+		"3. which of the following element is responsible for making the text bold in HTML?"
+		"4. Which of the following tag is used for inserting the largest heading in "
+		"5. Which of the following tag is used to insert a line-break in HTML?"
+		"6. How to create an unordered list (a list with the list items in bullets) in HTML?"
+		"7. Which character is used to represent the closing of a tag in HTML?"
+		"8. How to create a hyperlink in HTML?"
+		"9. How to create an ordered list (a list with the list items in numbers) in HTML?"
+		"10.Which of the following element is responsible for making the text italic in HTML?"
+		"11.How to insert an image in HTML?"
+		"12. How to add a background color in HTML?"
+		"13. <input> is -"
+		"14. Which of the following tag is used to make the underlined text?"
+		"15. How to create a checkbox in HTML?"
+
+	NoOfQuestions = Questions.length;
+	selectedAnswer=5;	
+	QuestionNo = 0;
+	marks=0;
+	Choosed = false;
+	Answers = new Array(NoOfQuestions);
+	for (var i = 0 ; i < NoOfQuestions ; i++)
+	{
+	    Answers[i] = new Array(4);
+	}
+	CorrectAnswers = new Array(NoOfQuestions);
+
+
+	Answers[0][0] = "HighText Machine Language";
+	Answers[0][1] = "HyperText and links Markup Language";
+	Answers[0][2] = "HyperText Markup Language";
+	Answers[0][3] = "None of these";
+	CorrectAnswers[0] = 2;
+
+
+	Answers[1][0] = "Head, Title, HTML, body";
+	Answers[1][1] = "HTML, Body, Title, Head";
+	Answers[1][2] = "HTML, Head, Title, Body";
+	Answers[1][3] = "HTML, Head, Title, Body";
+	CorrectAnswers[1] = 4;
+
+	
+	Answers[2][0] = "<pre>";
+	Answers[2][1] = "<a>";
+	Answers[2][2] = "<b>";
+	Answers[2][3] = "<br>";
+	CorrectAnswers[2] = 2;
+
+
+	Answers[3][0] = "<h3>";
+	Answers[3][1] = "<h1>";
+	Answers[3][2] = "<h5>";
+	Answers[3][3] = "<h6>";
+	CorrectAnswers[3] = 1;
+	
+	
+	Answers[4][0] = "<br>";
+	Answers[4][1] = "<a>";
+	Answers[4][2] = "<pre>";
+	Answers[4][3] = "<b>";
+	CorrectAnswers[4] = 0;
+
+
+	Answers[5][0] = "<ul>";
+	Answers[5][1] = "<ol>";
+	Answers[5][2] = "<li>";
+	Answers[5][3] = "<i>";
+	CorrectAnswers[5] = 0;
+
+
+	Answers[6][0] = "<\>";
+	Answers[6][1] = "!";
+	Answers[6][2] = "/";
+	Answers[6][3] = ".";
+	CorrectAnswers[6] = 2;
+
+	Answers[7][0] = "<a href = "www.google.com.com"> google.com.com </a>";
+	Answers[7][1] = "<a url = "www.google.com.com" google.com.com /a>";
+	Answers[7][2] = "<a link = "www.google.com.com"> google.com.com </a>";
+	Answers[7][3] = "<a> www.google.com.com <google.com.com /a>";
+	CorrectAnswers[7] = 0;
+
+	Answers[8][0] = "<ul>";
+	Answers[8][1] = "<ol>";
+	Answers[8][2] = "!";
+	Answers[8][3] = "<i>";
+	CorrectAnswers[8] = 1;
+
+
+	Answers[9][0] = "<i>";
+	Answers[9][1] = "<italic>";
+	Answers[9][2] = "<it>";
+	Answers[9][3] = "<pre>";
+	CorrectAnswers[9] = 0;
+
+
+	Answers[10][0] = "<img href = "jtp.png" />";
+	Answers[10][1] = "<img url = "jtp.png" />";
+	Answers[10][2] = "<img link = "jtp.png" />";
+	Answers[10][3] = "<img src = "jtp.png" />";
+	CorrectAnswers[10] = 3;
+
+
+
+	Answers[11][0] = "<marquee bg color: "red">";
+	Answers[11][1] = "<marquee bg-color = "red">";
+	Answers[11][2] = "<marquee bgcolor = "red">";
+	Answers[11][3] = "<marquee color = "red">;";
+	CorrectAnswers[11] =  2;	
+
+
+	Answers[12][0] = "format tag.";
+	Answers[12][1] = "an empty tag.";
+	Answers[12][2] = "All of the above";
+	Answers[12][3] = "None of the above";
+	CorrectAnswers[12] = 1;
+	
+
+	Answers[13][0] = "<i>";
+	Answers[13][1] = "<ul>";
+	Answers[13][2] = "<u>";
+	Answers[13][3] = "<pre>";
+	CorrectAnswers[14=3] = 2;
+
+	
+	Answers[13][0] = "<input type = "checkbox">";
+	Answers[13][1] = "<input type = "button">";
+	Answers[13][2] = "<checkbox>";
+	Answers[13][3] = "<input type = "check">";
+	CorrectAnswers[13] = 0;	
+
+
+
+	function NextQuestion() {
+		if (selectedAnswer==CorrectAnswers[QuestionNo]) {
+		//	alert("Correct " +selectedAnswer + "  " + CorrectAnswers[QuestionNo]);
+			marks++;
+		}
+		if (Choosed) {
+		
+	   	if(QuestionNo < NoOfQuestions - 1)
+	   	{	
+	   		QuestionNo++;
+	   		loadQuestion();
+	   	}
+	   	else
+	   	{
+	   		alert("End of Examination \n"+"Marks Are : "+marks+"");
+	   	}
+
+	   	} else {
+			alert("you are not selected Any Option...")
+		 }
+	}
+	function AnswerChoosed(Ans) {
+		selectedAnswer=Ans;
+		Choosed=true;
+	}
+	
+	function loadQuestion() {
+		document.getElementById("Question").innerHTML=Questions[QuestionNo];
+		document.getElementById("Option0").innerHTML = "(a) " + Answers[QuestionNo][0];
+		document.getElementById("Option1").innerHTML = "(b) " + Answers[QuestionNo][1];
+		document.getElementById("Option2").innerHTML = "(c) " + Answers[QuestionNo][2];
+		document.getElementById("Option3").innerHTML = "(d) " + Answers[QuestionNo][3];		
+		document.getElementById("Opt1").checked = false;	
+		document.getElementById("Opt2").checked = false;	
+		document.getElementById("Opt3").checked = false;	
+		document.getElementById("Opt4").checked = false;
+	//	Answer = 15;
+			
+		selectedAnswer=15;	
+		Choosed=false;
+	}
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body onload="loadQuestion()">
+<p style="color: #33CCFF;font-family: 'DejaVu Sans';font-size:60px;font-weight:bold">Online Exam @ Mphasis</p>
+		<div style="background : none repeat scroll 0 0 #3366CC;border:5px solid gray;
+			    color : white; font-family : 'DejaVu Sans',Times,Serif;
+    font-weight : bold;
+    margin : 10px auto;
+    padding : 10px;
+    width : 400px;">
+		<br/><br/>
+			<form name = "ExamForm" id = "inputForm1" action = "" method = "GET">
+					<p id = "Question">
+						This is the question
+					</p>
+				
+					<input type = "radio" name = "OptionR" id = "Opt1" onClick = "AnswerChoosed(1)"/>
+					<label id = "Option0" name = "Name1" >1st Option</label><br />
+					<input type = "radio" name = "OptionR" id = "Opt2" onClick = "AnswerChoosed(2)"/> 
+					<label id = "Option1">2nd Option</label><br />
+					<input type = "radio" name = "OptionR" id = "Opt3" onClick = "AnswerChoosed(3)"/> 
+					<label id = "Option2">3rd Option</label><br />
+					<input type = "radio" name = "OptionR" id = "Opt4" onClick = "AnswerChoosed(4)"/> 
+					<label id = "Option3">4th Option</label><br />
+					<br />
+					<br />
+					<input type = "button" value = "Next" onClick = "NextQuestion()">
+			</form>		
+		</div>
+</body>
+</html>
